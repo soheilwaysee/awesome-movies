@@ -1,0 +1,9 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`renders personalized greeting 1`] = `
+<img
+  data-testid="image"
+  src="/images/placeholder.png"
+  username="soheil"
+/>
+`;

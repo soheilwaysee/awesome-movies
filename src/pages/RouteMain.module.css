@@ -1,0 +1,28 @@
+.routeWrapper {
+  transition: margin 0.4s;
+  margin-left: 200px;
+  min-height: calc(100vh - 6rem);
+  flex: 1;
+  display: flex;
+  margin-top: 9rem;
+}
+
+.wrapper {
+  flex-direction: column;
+  display: flex;
+}
+
+.hide {
+  transition: margin 0.4s;
+  margin-left: 0;
+}
+
+@media screen and (orientation: portrait) {
+  .wrapper {
+    flex-direction: row;
+  }
+  .routeWrapper {
+    min-height: calc(100vh - 5rem);
+    margin-top: 5rem;
+  }
+}

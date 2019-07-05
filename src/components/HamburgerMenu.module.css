@@ -1,0 +1,14 @@
+.wrapper {
+  background-color: transparent;
+  border: 0;
+  outline: none;
+  padding: 0;
+}
+
+.bar {
+  width: var(--four-base);
+  background-color: var(--white);
+  height: var(--half-base);
+  display: block;
+  margin-top: var(--half-base);
+}

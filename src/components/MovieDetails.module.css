@@ -1,0 +1,75 @@
+.wrapper {
+  padding: var(--three-base);
+  max-width: 667px;
+  margin: 0 auto;
+  margin-top: 3rem;
+}
+.year {
+  font-size: 1.7rem;
+  color: grey;
+  margin: 0;
+  margin-top: var(--half-base);
+  text-align: center;
+}
+.title {
+  font-size: 2rem;
+  color: #e9e9e9;
+  text-align: center;
+  padding: 0;
+  margin: 0;
+}
+
+.contentWrapper {
+  display: flex;
+  flex-direction: row;
+  margin-top: var(--three-base);
+}
+
+.content {
+  margin-left: var(--three-base);
+  margin-top: var(--three-base);
+}
+
+.descriptionWrapper {
+  margin-top: var(--three-base);
+  margin-bottom: var(--three-base);
+}
+
+.descriptionTitle {
+  font-size: 1.2rem;
+  color: #e9e9e9;
+  padding: 0;
+  margin: 0;
+  margin-bottom: 10px;
+}
+
+.descriptionImage {
+  border-radius: var(--half-base);
+  background-color: white;
+  height: var(--teen-base);
+}
+.castWrapper {
+  width: 60px;
+  height: var(--teen-base);
+}
+
+.castName {
+  font-size: var(--two-base);
+}
+
+.card {
+  margin: 0 auto;
+  width: 300px;
+}
+
+.info {
+  width: 300px;
+  margin: 0 auto;
+  font-size: 0.8rem;
+}
+
+@media screen and (orientation: landscape) {
+  .wrapper {
+    margin-top: 6rem;
+  }
+}

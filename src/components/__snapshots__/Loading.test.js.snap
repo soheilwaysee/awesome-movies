@@ -1,0 +1,27 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`renders Loading 1`] = `
+<div
+  class="loading"
+  id="loading"
+>
+  <i
+    class="icon icon-spin5 animate-spin"
+  >
+    
+  </i>
+</div>
+`;
+
+exports[`renders personalized greeting 1`] = `
+<div
+  class="loading"
+  id="loading"
+>
+  <i
+    class="icon icon-spin5 animate-spin"
+  >
+    
+  </i>
+</div>
+`;

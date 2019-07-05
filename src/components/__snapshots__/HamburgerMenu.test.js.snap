@@ -1,0 +1,19 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`renders HamburgerMenu 1`] = `
+<button
+  class="wrapper"
+  data-testid="button"
+  type="button"
+>
+  <span
+    class="bar"
+  />
+  <span
+    class="bar"
+  />
+  <span
+    class="bar"
+  />
+</button>
+`;

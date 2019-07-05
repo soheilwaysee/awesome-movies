@@ -1,0 +1,44 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`renders personalized greeting 1`] = `
+<div
+  class="wrapper hide"
+>
+  <a
+    aria-current="page"
+    class="link active"
+    data-testid="link"
+    href="/movie/favorites"
+  >
+    Favorites
+  </a>
+  <a
+    class="link"
+    data-testid="link"
+    href="/movie/popular"
+  >
+    Popular
+  </a>
+  <a
+    class="link"
+    data-testid="link"
+    href="/movie/top_rated"
+  >
+    Top Rated
+  </a>
+  <a
+    class="link"
+    data-testid="link"
+    href="/movie/now_playing"
+  >
+    Now Playing
+  </a>
+  <a
+    class="link"
+    data-testid="link"
+    href="/movie/upcoming"
+  >
+    Upcoming
+  </a>
+</div>
+`;
