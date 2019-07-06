@@ -27,7 +27,7 @@ it("renders personalized greeting", async () => {
   );
 
   const links = await findAllByTestId("link");
-  expect(links).toHaveLength(5);
+  expect(links).toHaveLength(6);
   const favorite = await findByText("Favorites");
   expect(favorite).toHaveClass("link active");
   expect(container.firstChild).toMatchSnapshot();

@@ -5,12 +5,11 @@ exports[`renders personalized greeting 1`] = `
   class="wrapper hide"
 >
   <a
-    aria-current="page"
-    class="link active"
+    class="link"
     data-testid="link"
-    href="/movie/favorites"
+    href="/movie/now_playing"
   >
-    Favorites
+    Now Playing
   </a>
   <a
     class="link"
@@ -29,16 +28,24 @@ exports[`renders personalized greeting 1`] = `
   <a
     class="link"
     data-testid="link"
-    href="/movie/now_playing"
+    href="/movie/upcoming"
   >
-    Now Playing
+    Upcoming
+  </a>
+  <a
+    aria-current="page"
+    class="link active"
+    data-testid="link"
+    href="/movie/favorites"
+  >
+    Favorites
   </a>
   <a
     class="link"
     data-testid="link"
-    href="/movie/upcoming"
+    href="/movie/watchlist"
   >
-    Upcoming
+    Watchlist
   </a>
 </div>
 `;
