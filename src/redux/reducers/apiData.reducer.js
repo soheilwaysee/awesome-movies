@@ -1,6 +1,6 @@
 import get from "lodash.get";
 import normalizers from "../normalizers";
-import getKey from "../../utils/getkey";
+import getKey from "../../utils/getKey";
 import actionTypes from "../actionTypes";
 import replaceImmutableList from "../../utils/replaceImmutableList";
 

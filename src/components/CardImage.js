@@ -1,6 +1,6 @@
 import React from "react";
 import Image from "./Image";
-import styles from "./CardImage.module.css";
+import styles from "../styles/components/CardImage.module.css";
 import iconNames from "../constants/iconNames";
 import Icon from "./Icon";
 import { useDispatch } from "react-redux";

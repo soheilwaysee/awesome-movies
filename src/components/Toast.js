@@ -1,7 +1,7 @@
 import React, { useEffect } from "react";
 import { useSelector, useDispatch } from "react-redux";
 import get from "lodash.get";
-import styles from "./Toast.module.css";
+import styles from "../styles/components/Toast.module.css";
 import { hideToast } from "../redux/actions";
 import classNamesJoiner from "../utils/classNamesJoiner";
 const Toast = () => {

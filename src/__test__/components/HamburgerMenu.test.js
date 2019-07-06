@@ -1,7 +1,7 @@
 import React from "react";
 import { render, cleanup, fireEvent } from "@testing-library/react";
 import "jest-dom/extend-expect";
-import HamburgerMenu from "./HamburgerMenu";
+import HamburgerMenu from "../../components/HamburgerMenu";
 
 afterEach(cleanup);
 

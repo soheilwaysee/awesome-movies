@@ -2,7 +2,7 @@ import React from "react";
 import Search from "./Search";
 import { Link } from "react-router-dom";
 import HamburgerMenu from "./HamburgerMenu";
-import styles from "./Header.module.css";
+import styles from "../styles/components/Header.module.css";
 
 const Header = ({ setShowSideBar }) => {
   return (

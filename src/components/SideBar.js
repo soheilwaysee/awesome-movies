@@ -1,6 +1,6 @@
 import React, { useCallback } from "react";
 import { NavLink } from "react-router-dom";
-import styles from "./SideBar.module.css";
+import styles from "../styles/components/SideBar.module.css";
 import routeNames from "../constants/routeNames";
 import classNamesJoiner from "../utils/classNamesJoiner";
 

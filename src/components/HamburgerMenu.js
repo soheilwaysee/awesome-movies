@@ -1,5 +1,5 @@
 import React from "react";
-import styles from "./HamburgerMenu.module.css";
+import styles from "../styles/components/HamburgerMenu.module.css";
 
 const HamburgerMenu = ({ setShowSideBar }) => (
   <button

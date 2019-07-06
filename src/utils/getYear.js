@@ -1,7 +1,7 @@
 const isValidDate = date => date instanceof Date && !isNaN(date);
 
 const getYear = date => {
-  if (!isValidDate) {
+  if (!isValidDate(date)) {
     return false;
   }
 

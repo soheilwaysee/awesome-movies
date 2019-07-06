@@ -1,7 +1,6 @@
 import React, { memo } from "react";
 import Card from "./Card";
-import Loading from "./Loading";
-import styles from "./MovieList.module.css";
+import styles from "../styles/components/MovieList.module.css";
 import isUidChanged from "../utils/isUidChanged";
 import iconNames from "../constants/iconNames";
 import Icon from "./Icon";

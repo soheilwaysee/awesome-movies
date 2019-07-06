@@ -7,9 +7,8 @@ import { Redirect } from "react-router-dom";
 import routeNames from "../constants/routeNames";
 import Loading from "../components/Loading";
 import actionTypes from "../redux/actionTypes";
-import { useSelector } from "react-redux";
-import isLoginCheck from "../utils/isLoginCheck";
 import ListEmpty from "../components/ListEmpty";
+import useAuth from '../customHooks/useAuth';
 
 const MovieListPage = ({
   match: {
@@ -18,7 +17,7 @@ const MovieListPage = ({
   history
 }) => {
   const action = useMemo(() => get(getMoviesApiActions, [type]), [type]);
-  const isLogin = useSelector(isLoginCheck);
+  const {isLogin} = useAuth();
   const isRouteFavORWatchList =
     [
       actionTypes.GET_ACCOUNT_FAVORITE_MOVIES,
@@ -26,17 +25,14 @@ const MovieListPage = ({
     ].indexOf(action.type) !== -1;
   const [{ data, loading, uid }, setAction] = useRequest(
     action,
-    undefined,
     isRouteFavORWatchList && !isLogin
   );
   const [{ data: favoriteData, uid: favoriteUid }] = useRequest(
     getMoviesApiActions.favorites,
-    undefined,
     !isLogin
   );
   const [{ data: watchListData, uid: watchListUid }] = useRequest(
     getMoviesApiActions.watchlist,
-    undefined,
     !isLogin
   );
   const favoriteIds = get(favoriteData, ["ids"]);

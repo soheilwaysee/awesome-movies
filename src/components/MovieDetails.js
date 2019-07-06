@@ -1,7 +1,7 @@
 import React, { memo } from "react";
 import Card from "./Card";
 import getYear from "../utils/getYear";
-import styles from "./MovieDetails.module.css";
+import styles from "../styles/components/MovieDetails.module.css";
 import MovieDetailsInfo from "./MovieDetailsInfo";
 import MovieDetailsInfoArray from "./MovieDetailsInfoArray";
 import isUidChanged from "../utils/isUidChanged";
@@ -34,7 +34,7 @@ const MovieDetails = ({
         {release_date && (
           <h4 className={styles.year}>{getYear(release_date)}</h4>
         )}
-        <MovieDetailsInfoArray info={genres} title="Genres" />
+        <MovieDetailsInfoArray info={genres} wrapperClassName="center-align" title="Genres" />
         <Card
           isFavorited={isFavorited}
           isWatchListed={isWatchListed}

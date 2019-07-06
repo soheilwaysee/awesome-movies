@@ -1,4 +1,4 @@
-import getKey from "./getKey";
+import getKey from "../../utils/getKey";
 
 test("get key", () => {
   const mockArray = new Array(20).fill(null);

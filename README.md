@@ -1,5 +1,100 @@
-This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
 
+# Awesome Movies
+The `Awsome Movies` is of project challenge test.
+This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
+## Author
+
+* **Soheil Waysee** - *Initial developer* - [Github Page](https://github.com/soheilwaysee)
+
+
+## Features
+
+Popular technologies:
+- [React](https://facebook.github.io/react/) as the view.
+- [React Router v4](https://reacttraining.com/react-router/) as the router.
+- [Redux](https://github.com/reactjs/redux)'s futuristic [Flux](https://facebook.github.io/react/blog/2014/05/06/flux.html) implementation.
+- [axios](https://github.com/mzabriskie/axios) for universal data fetching/rehydration on the client.
+- [Redux Devtools Extension](https://github.com/zalmoxisus/redux-devtools-extension) for next generation developer experience.
+
+- [Yarn](https://yarnpkg.com/lang/en/) as the package manager.
+
+## Getting Started
+
+**1. You can start by cloning the repository on your local machine by running:**
+
+```bash
+git@github.com:soheilwaysee/awesome-movies.git
+cd awesome-movies
+```
+
+**2. Install all of the dependencies:**
+
+```bash
+yarn
+```
+
+**3. Start to run it:**
+
+```bash
+cp .env.example .env
+```
+```bash
+yarn start  # Running development server
+```
+Now the app should be running at browser
+## NPM Script Commands
+
+I use [better-npm-run](https://github.com/benoror/better-npm-run) to manage the scripts in a better way, which also provides the compatibility of cross-platform. All of the scripts are listed as following:
+
+| `yarn <script>`        | Description                                                                      |
+| ---------------------- | -------------------------------------------------------------------------------- |
+| `start`                  | Run your app on the development server at `localhost:3000`. HMR will be enabled. |
+| `build`                | bundle it to `./public            |
+                        |
+| `test`                 | Run testing  
+## App Structure
+
+Here is the structure of the app, which serves as generally accepted guidelines and patterns for building scalable apps.
+
+```
+.
+├── .env.example                    # copy it to .env
+├── public                          # static files
+├── src                             # App source code
+│   ├── components                  # Reusable components 
+│   ├── __test__                    # test files
+│   ├── pages                       # Page components 
+│   ├── app.js                      # App root component 
+│   ├── redux
+│   │   ├── actions.js                 # Redux actions (including testing files)
+│   │   ├── reducers                   # Redux reducers 
+│   ├── utils                       # App-wide utils 
+│   ├── styles                      #styles of porject
+├── index.js                        # App entry point
+```
+
+## Setup Redux DevTools Extension
+
+The [Redux Devtools Extension](https://github.com/zalmoxisus/redux-devtools-extension) let us wire up our Redux app to a time-traveling debugger. It's enabled in development only. You can follow these installation guides to use it:
+
+### Styles
+ supports [CSS modules](https://github.com/css-Modules/css-Modules)
+
+With CSS modules:
+
+```js
+import styles from './styles.scss';
+
+// ...
+
+render() {
+  return (
+    <div className={styles.myClass}>
+    ...
+    </div>
+  );
+}
+```
 ## Available Scripts
 
 In the project directory, you can run:
@@ -19,7 +114,9 @@ See the section about [running tests](https://facebook.github.io/create-react-ap
 
 ### `npm run build`
 
-Builds the app for production to the `build` folder.<br>
+Builds the app for production to the `build` folder.
+  yarn global add serve
+  serve -s build
 It correctly bundles React in production mode and optimizes the build for the best performance.
 
 The build is minified and the filenames include the hashes.<br>

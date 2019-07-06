@@ -42,6 +42,9 @@
   .itemWrapper {
     height: 3rem;
   }
+  .logo {
+    display: none;
+  }
 }
 @media screen and (orientation: landscape) {
   .hamburgerMenu {

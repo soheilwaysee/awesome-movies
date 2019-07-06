@@ -1,4 +1,4 @@
-import getQuery from "./getQuery";
+import getQuery from "../../utils/getQuery";
 
 test("getQuery", () => {
   const query = "?username=Soheil";

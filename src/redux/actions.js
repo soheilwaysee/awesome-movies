@@ -10,6 +10,7 @@ export const addToFavAction = (id, active) => ({
     favorite: active
   }
 });
+
 export const addToWatchListAction = (id, active) => ({
   type: actionTypes.ACCOUNT_WATCHLIST,
   method: "post",

@@ -3,6 +3,7 @@ import MovieDetails from "../components/MovieDetails";
 import { getMovieApiAction, getMoviesApiActions } from "../redux/actions";
 import useRequest from "../utils/useRequest";
 import get from "lodash.get";
+import useAuth from '../customHooks/useAuth';
 
 const MovieDetailsPage = ({
   match: {
@@ -10,16 +11,15 @@ const MovieDetailsPage = ({
   }
 }) => {
   const action = useMemo(() => getMovieApiAction(id), [id]);
-  const [{ data, isLogin, uid }, setAction] = useRequest(action);
+  const [{ data, uid }, setAction] = useRequest(action);
+  const {isLogin} = useAuth();
   const [{ data: favoriteData, uid: favoriteUid }] = useRequest(
     getMoviesApiActions.favorites,
-    isLogin,
-    false
+    !isLogin
   );
   const [{ data: watchListData, uid: watchListUid }] = useRequest(
     getMoviesApiActions.watchlist,
-    isLogin,
-    false
+    !isLogin
   );
   const favoriteIds = get(favoriteData, ["ids"]);
   const watchListIds = get(watchListData, ["ids"]);

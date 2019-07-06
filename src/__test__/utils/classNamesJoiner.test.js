@@ -1,4 +1,4 @@
-import classNamesJoiner from "./classNamesJoiner";
+import classNamesJoiner from "../../utils/classNamesJoiner";
 
 test("classNamesJoiner", () => {
   const argument = ["wrapper", "inline"];

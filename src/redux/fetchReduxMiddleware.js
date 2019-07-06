@@ -2,7 +2,8 @@ import request from "../utils/request";
 import config from "../config";
 import get from "lodash.get";
 import actionTypes from "./actionTypes";
-import { getTokenAction, showToast } from "./actions";
+import { showToast } from "./actions";
+import redirectToLoginPage from '../utils/redirectToLoginPage';
 
 const fetchReduxMiddleware = ({ getState, dispatch }) => next => action => {
   if (!action.method) {
@@ -44,23 +45,9 @@ const fetchReduxMiddleware = ({ getState, dispatch }) => next => action => {
           })
         );
 
-        dispatch(getTokenAction).then(({ data }) => {
-          const token = get(data, ["request_token"]);
-          if (token) {
-            window.location = `${config.AUTH_URL}/${token}?redirect_to=${
-              window.location.origin
-            }`;
-          }
-        });
-      }
+        redirectToLoginPage(dispatch);
 
-      // const noInternet = !error.status && !error.response;
-      // if (noInternet) {
-      //   next({
-      //     message: "some message for notification",
-      //     type: "show_notification"
-      //   });
-      // }
+      }
       return Promise.reject(error);
     });
 };

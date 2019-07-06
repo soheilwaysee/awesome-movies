@@ -1,18 +1,18 @@
-import React, { useState, useRef, useMemo } from "react";
+import React, { useState, useRef, useMemo, useCallback } from "react";
 import debounce from "../utils/debounce";
 import useRequest from "../utils/useRequest";
 import { withRouter } from "react-router-dom";
 import Image from "./Image";
 import get from "lodash.get";
-import styles from "./Search.module.css";
+import styles from "../styles/components/Search.module.css";
 import { getSearchData } from "../redux/actions";
 
 const Search = ({ history }) => {
   const inputRef = useRef();
   const action = useMemo(() => getSearchData(), []);
-  const [{ data }, setAction] = useRequest(action, false);
+  const [{ data }, setAction] = useRequest(action, true);
   const [showClearBtn, setShowClearBtn] = useState(false);
-  const onChange = debounce(value => {
+  const onChange = useCallback(debounce(value => {
     if (value) {
       setShowClearBtn(true);
     } else {
@@ -21,17 +21,22 @@ const Search = ({ history }) => {
     if (value) {
       setAction(({ params }) => ({ params: { ...params, query: value } }));
     }
-  }, 400);
+  }, 400), []);
   const [showHistory, setShowHistory] = useState(false);
   const onChangeHandler = event => {
     const inputValue = event.target.value;
     onChange(inputValue);
   };
-  const clearValue = () => {
+
+  const clearValue = useCallback(() => {
     onChange("");
     inputRef.current.value = "";
-  };
-
+  }, [onChange]);
+  const showDetailsHandler = useCallback((id) => () => {
+    clearValue()
+    setShowHistory(false);
+    history.push(`/details/${id}`);
+  }, [clearValue, history])
   return (
     <li className={styles.wrapper}>
       <input
@@ -39,6 +44,7 @@ const Search = ({ history }) => {
         ref={inputRef}
         onChange={onChangeHandler}
         className={styles.input}
+        placeholder="Find Movies"
       />
       {showClearBtn && (
         <button onClick={clearValue} className={styles.clear} type="button">
@@ -47,18 +53,14 @@ const Search = ({ history }) => {
       )}
       {showHistory && (
         <ul className={styles.suggestionWrapper}>
-          {get(data, ["items"], [])
-            .splice(0, 6)
+          {get(data, ["results"], [])
+            .slice(0, 6)
             .map(({ poster_path, title, id, release_date }) => (
               <button
                 key={id}
                 type="button"
                 className={styles.link}
-                onClick={() => {
-                  inputRef.current.value = "";
-                  setShowHistory(false);
-                  history.push(`/details/${id}`);
-                }}
+                onClick={showDetailsHandler(id)}
               >
                 <li key={id} className={styles.suggestionItemWrapper}>
                   <Image

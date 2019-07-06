@@ -8,6 +8,7 @@
   top: 6rem;
   transition: width 0.4s;
   flex-direction: column;
+  overflow: hidden;
 }
 
 .link {
@@ -44,15 +45,19 @@
     flex-direction: row;
     height: 3rem;
     width: 100vw;
+    align-items: center;
+    border: 0.1rem solid transparent;
+    border-bottom: 0.1rem solid var(--active);
   }
   .active {
     border: 0;
-    border-bottom: 0.3rem solid var(--active);
+    border-bottom: 0 solid transparent;
     background-color: var(--primary);
     color: var(--active);
   }
   .link {
     text-align: center;
+    padding: 0 var(--half-base);
     width: auto;
   }
 }

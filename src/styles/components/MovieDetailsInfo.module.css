@@ -1,0 +1,11 @@
+.wrapper {
+    margin: 1rem 0;
+
+}
+.title {
+    margin: 0;
+    padding: var(--half-base);
+}
+.description {
+    line-height: 1.2rem;
+}

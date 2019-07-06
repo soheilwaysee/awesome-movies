@@ -1,6 +1,6 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
-exports[`renders personalized greeting 1`] = `
+exports[`SideBar Component  renders SideBar Component 1`] = `
 <div
   class="wrapper hide"
 >

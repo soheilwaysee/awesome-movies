@@ -2,10 +2,9 @@ import { useEffect, useState, useCallback } from "react";
 import { useDispatch, useSelector } from "react-redux";
 import get from "lodash.get";
 import useIsComponentUnmounted from "../customHooks/useIsComponentUnmounted";
-import getKey from "./getkey";
-import actionTypes from "../redux/actionTypes";
+import getKey from "./getKey";
 
-const useRequest = (action, dataEmptyRequest = true, notRequest) => {
+const useRequest = (action, notRequest) => {
   const isUnmounted = useIsComponentUnmounted();
 
   const [requestStatus, setRequestStatus] = useState({});
@@ -17,8 +16,7 @@ const useRequest = (action, dataEmptyRequest = true, notRequest) => {
       if (isUnmounted.current) {
         return undefined;
       }
-
-      setRequestStatus({ loading: true, uid: getKey() });
+      setRequestStatus({ loading: true });
       return reduxDispatch(action)
         .then(() => {
           if (isUnmounted.current) {
@@ -56,13 +54,13 @@ const useRequest = (action, dataEmptyRequest = true, notRequest) => {
     setRequestStatus(prevStatus => ({ ...prevStatus, uid: getKey() }));
   }, [dataUid]);
 
-  const shouldRequest = !notRequest && !data && dataEmptyRequest;
+  const notApiRequest = notRequest ||  data;
   useEffect(() => {
-    if (!shouldRequest) {
+    if (notApiRequest) {
       return undefined;
     }
     getData(action);
-  }, [action, getData, reduxDispatch, shouldRequest, notRequest]);
+  }, [action, getData, reduxDispatch, notRequest, notApiRequest, data]);
 
   return [{ data, ...requestStatus }, setAction];
 };

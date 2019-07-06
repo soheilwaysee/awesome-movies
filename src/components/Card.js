@@ -1,9 +1,8 @@
 import React, { useCallback } from "react";
 import CardImage from "./CardImage";
 import getYear from "../utils/getYear";
-import styles from "./Card.module.css";
+import styles from "../styles/components/Card.module.css";
 import classNamesJoiner from "../utils/classNamesJoiner";
-
 const defaultShowDetailsHandler = () => undefined;
 
 const Card = ({

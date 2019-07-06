@@ -3,7 +3,7 @@ import SideBar from "../components/SideBar";
 import MovieListPage from "./MovieListPage";
 import MovieDetailsPage from "./MovieDetailsPage";
 import { Route } from "react-router-dom";
-import styles from "./RouteMain.module.css";
+import styles from "../styles/pages/RouteMain.module.css";
 import NotFound from "./NotFound";
 import { Switch } from "react-router-dom";
 
