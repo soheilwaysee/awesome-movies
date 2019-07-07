@@ -7,6 +7,7 @@ import styles from '../styles/pages/RouteMain.module.css';
 import NotFound from './NotFound';
 import { Switch } from 'react-router-dom';
 import PropTypes from 'prop-types';
+import movieListRoutes from '../utils/movieListRoutes';
 
 const RouteMain = ({ showSideBar, setShowSideBar }) => (
   <div className={styles.wrapper}>
@@ -15,7 +16,7 @@ const RouteMain = ({ showSideBar, setShowSideBar }) => (
       className={[styles.routeWrapper, !showSideBar && styles.hide].join(' ')}
     >
       <Switch>
-        <Route path={['/movie/:type?', '/']} exact component={MovieListPage} />
+        <Route path={movieListRoutes} exact component={MovieListPage} />
         <Route path="/details/:id" component={MovieDetailsPage} />
         <Route component={NotFound} />
       </Switch>

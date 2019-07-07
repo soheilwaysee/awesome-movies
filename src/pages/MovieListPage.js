@@ -1,4 +1,4 @@
-import React, { useCallback, useMemo } from 'react';
+import React, { useCallback } from 'react';
 import MovieList from '../components/MovieList';
 import useRequest from '../utils/useRequest';
 import { getMoviesApiActions } from '../redux/actions';
@@ -11,14 +11,12 @@ import EmptyList from '../components/EmptyList';
 import useAuth from '../customHooks/useAuth';
 import PropTypes from 'prop-types';
 import movieTypesPropTypes from '../propTypesCommon/movieTypesPropTypes';
+import useMovieAction from '../customHooks/useMovieAction';
 
-const MovieListPage = ({
-  match: {
-    params: { type = 'now_playing' }
-  },
-  history
-}) => {
-  const action = useMemo(() => get(getMoviesApiActions, [type]), [type]);
+const MovieListPage = ({ history, location }) => {
+  const { action, resultType } = useMovieAction(
+    get(location, ['pathname'], '')
+  );
   const { isLoggedIn } = useAuth();
   const isRouteFavORWatchList =
     [
@@ -70,7 +68,7 @@ const MovieListPage = ({
           uid={uid + favoriteUid + watchListUid}
           favoriteIds={favoriteIds}
           watchListIds={watchListIds}
-          type={type}
+          type={resultType}
           items={items}
           showDetailsHandler={showDetailsHandler}
           isLastPage={isLastPage}
