@@ -9,9 +9,10 @@ import routerPropTypes from '../propTypesCommon/routerPropTypes';
 const Auth = ({ location }) => {
   const params = new URLSearchParams(get(location, ['search']));
   const requestToken = params.get('request_token');
+  const denied = params.get('denied');
   const reduxDispatch = useDispatch();
   useEffect(() => {
-    if (!requestToken) {
+    if (!requestToken || denied) {
       return undefined;
     }
     reduxDispatch({
@@ -24,7 +25,7 @@ const Auth = ({ location }) => {
     }).then(({ data }) => {
       setItemLocalStorage('session_id', data.session_id);
     });
-  }, [reduxDispatch, requestToken]);
+  }, [denied, reduxDispatch, requestToken]);
 
   return null;
 };
