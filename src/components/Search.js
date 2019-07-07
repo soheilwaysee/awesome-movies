@@ -19,6 +19,7 @@ const Search = ({ history }) => {
         setShowClearBtn(true);
       } else {
         setShowClearBtn(false);
+        setShowHistory(false);
       }
       if (value) {
         setAction(({ params }) => ({ params: { ...params, query: value } }));
