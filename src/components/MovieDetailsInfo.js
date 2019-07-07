@@ -1,6 +1,7 @@
 import React from "react";
 import styles from "../styles/components/MovieDetailsInfo.module.css";
-console.log('----------styles---------', styles);
+import PropTypes from 'prop-types';
+
 const MovieDetailsInfo = ({ info, title }) =>
   info ? (
     <div className={styles.wrapper}>
@@ -8,5 +9,10 @@ const MovieDetailsInfo = ({ info, title }) =>
       <span className={styles.description}>{info}</span>
     </div>
   ) : null;
+
+MovieDetailsInfo.propTypes = {
+  info: PropTypes.oneOfType([ PropTypes.string, PropTypes.number]),
+  title: PropTypes.string,
+};
 
 export default MovieDetailsInfo;

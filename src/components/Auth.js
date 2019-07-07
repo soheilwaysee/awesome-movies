@@ -3,8 +3,11 @@ import { withRouter } from "react-router-dom";
 import { useDispatch } from "react-redux";
 import actionTypes from "../redux/actionTypes";
 import { setItemLocalStorage } from "../utils/localStorage";
+import get from 'lodash.get';
+import routerPropTypes from '../propTypesCommon/routerPropTypes';
+
 const Auth = ({ location }) => {
-  const params = new URLSearchParams(location.search);
+  const params = new URLSearchParams(get(location, ['search']));
   const requestToken = params.get("request_token");
   const reduxDispatch = useDispatch();
   useEffect(() => {
@@ -24,6 +27,10 @@ const Auth = ({ location }) => {
   }, [reduxDispatch, requestToken]);
 
   return null;
+};
+
+Auth.propTypes = {
+  location: routerPropTypes.location
 };
 
 export default withRouter(Auth);

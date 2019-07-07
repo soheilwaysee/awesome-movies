@@ -1,5 +1,6 @@
 import { useEffect } from "react";
 import { withRouter } from "react-router-dom";
+import routerPropTypes from '../propTypesCommon/routerPropTypes';
 
 const ScrollUpOnRouteChange = ({ location }) => {
   useEffect(() => {
@@ -9,6 +10,10 @@ const ScrollUpOnRouteChange = ({ location }) => {
   }, [location.pathname]);
 
   return null;
+};
+
+ScrollUpOnRouteChange.propTypes = {
+  location: routerPropTypes.location
 };
 
 export default withRouter(ScrollUpOnRouteChange);

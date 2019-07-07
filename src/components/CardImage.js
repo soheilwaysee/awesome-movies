@@ -11,6 +11,7 @@ import {
   getMoviesApiActions
 } from "../redux/actions";
 import actionTypes from "../redux/actionTypes";
+import PropTypes from 'prop-types';
 
 const CardImage = ({
   imageClassName,
@@ -68,6 +69,15 @@ const CardImage = ({
       </button>
     </div>
   );
+};
+
+CardImage.propTypes = {
+  imageClassName: PropTypes.string,
+  imageAlt: PropTypes.string,
+  imageSrc: PropTypes.string,
+  isWatchListed: PropTypes.bool,
+  id: PropTypes.number,
+  isFavorited: PropTypes.bool
 };
 
 export default CardImage;

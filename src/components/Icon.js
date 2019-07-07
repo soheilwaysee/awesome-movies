@@ -1,6 +1,7 @@
 import React from "react";
 import classNameJoiner from "../utils/classNamesJoiner";
 import iconNames from "../constants/iconNames";
+import PropTypes from 'prop-types';
 
 const IconNameMapper = {
   [iconNames.spinner]: {
@@ -31,6 +32,13 @@ const Icon = ({ name, style }) => {
       {value}
     </i>
   );
+};
+
+Icon.propTypes = {
+name: PropTypes.string,
+style: PropTypes.shape({
+  color: PropTypes.string
+})
 };
 
 export default Icon;

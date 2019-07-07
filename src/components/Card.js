@@ -3,6 +3,10 @@ import CardImage from "./CardImage";
 import getYear from "../utils/getYear";
 import styles from "../styles/components/Card.module.css";
 import classNamesJoiner from "../utils/classNamesJoiner";
+import PropTypes from 'prop-types';
+import moviePropTypes from '../propTypesCommon/moviePropTypes';
+
+
 const defaultShowDetailsHandler = () => undefined;
 
 const Card = ({
@@ -40,5 +44,14 @@ const Card = ({
     </div>
   );
 };
+
+Card.propTypes = {
+  item: moviePropTypes,
+  isFavorited: PropTypes.bool,
+  isWatchListed: PropTypes.bool,
+  showDetailsHandler: PropTypes.func,
+  className: PropTypes.string
+};
+
 
 export default Card;

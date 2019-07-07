@@ -1,7 +1,7 @@
 import actionTypes from "../redux/actionTypes";
 import get from "lodash.get";
 
-const isLoginCheck = state =>
+const isLoggedInCheck = state =>
   Boolean(
     get(state, [
       "apiData",
@@ -10,4 +10,4 @@ const isLoginCheck = state =>
     ])
   );
 
-export default isLoginCheck;
+export default isLoggedInCheck;

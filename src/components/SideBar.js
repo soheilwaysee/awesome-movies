@@ -3,6 +3,7 @@ import { NavLink } from "react-router-dom";
 import styles from "../styles/components/SideBar.module.css";
 import routeNames from "../constants/routeNames";
 import classNamesJoiner from "../utils/classNamesJoiner";
+import PropTypes from 'prop-types';
 
 const SideBar = ({ show, setShowSideBar }) => {
   const onClickHandler = useCallback(
@@ -71,4 +72,10 @@ const SideBar = ({ show, setShowSideBar }) => {
     </div>
   );
 };
+
+SideBar.propTypes = {
+  show: PropTypes.bool,
+  setShowSideBar: PropTypes.func
+};
+
 export default SideBar;

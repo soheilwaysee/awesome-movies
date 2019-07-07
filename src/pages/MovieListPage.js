@@ -7,8 +7,10 @@ import { Redirect } from "react-router-dom";
 import routeNames from "../constants/routeNames";
 import Loading from "../components/Loading";
 import actionTypes from "../redux/actionTypes";
-import ListEmpty from "../components/ListEmpty";
+import EmptyList from "../components/EmptyList";
 import useAuth from '../customHooks/useAuth';
+import PropTypes from 'prop-types';
+import movieTypesPropTypes from '../propTypesCommon/movieTypesPropTypes';
 
 const MovieListPage = ({
   match: {
@@ -17,23 +19,23 @@ const MovieListPage = ({
   history
 }) => {
   const action = useMemo(() => get(getMoviesApiActions, [type]), [type]);
-  const {isLogin} = useAuth();
+  const {isLoggedIn} = useAuth();
   const isRouteFavORWatchList =
     [
       actionTypes.GET_ACCOUNT_FAVORITE_MOVIES,
       actionTypes.GET_ACCOUNT_WATCHLIST_MOVIES
-    ].indexOf(action.type) !== -1;
+    ].indexOf(get(action, ['type'])) !== -1;
   const [{ data, loading, uid }, setAction] = useRequest(
     action,
-    isRouteFavORWatchList && !isLogin
+    isRouteFavORWatchList && !isLoggedIn
   );
   const [{ data: favoriteData, uid: favoriteUid }] = useRequest(
     getMoviesApiActions.favorites,
-    !isLogin
+    !isLoggedIn
   );
   const [{ data: watchListData, uid: watchListUid }] = useRequest(
     getMoviesApiActions.watchlist,
-    !isLogin
+    !isLoggedIn
   );
   const favoriteIds = get(favoriteData, ["ids"]);
   const watchListIds = get(watchListData, ["ids"]);
@@ -56,13 +58,13 @@ const MovieListPage = ({
     [history]
   );
 
-  const isListEmpty = !loading && items.length === 0;
+  const isEmptyList = !loading && items.length === 0;
   return !action ? (
     <Redirect to={routeNames.homePage} />
   ) : (
     <>
-      {isListEmpty ? (
-        <ListEmpty show isLogin={isLogin} />
+      {isEmptyList ? (
+        <EmptyList show isLoggedIn={isLoggedIn} />
       ) : (
         <MovieList
           uid={uid + favoriteUid + watchListUid}
@@ -79,6 +81,14 @@ const MovieListPage = ({
       <Loading show={loading} />
     </>
   );
+};
+
+MovieListPage.propTypes = {
+  match: PropTypes.shape({
+    params: PropTypes.shape({
+      type: movieTypesPropTypes
+    })
+  })
 };
 
 export default MovieListPage;

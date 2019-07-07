@@ -6,6 +6,7 @@ import { Route } from "react-router-dom";
 import styles from "../styles/pages/RouteMain.module.css";
 import NotFound from "./NotFound";
 import { Switch } from "react-router-dom";
+import PropTypes from 'prop-types';
 
 const RouteMain = ({ showSideBar, setShowSideBar }) => (
   <div className={styles.wrapper}>
@@ -21,5 +22,10 @@ const RouteMain = ({ showSideBar, setShowSideBar }) => (
     </div>
   </div>
 );
+
+RouteMain.propTypes = {
+  showSideBar: PropTypes.bool,
+  setShowSideBar: PropTypes.func
+};
 
 export default RouteMain;

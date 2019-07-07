@@ -3,6 +3,7 @@ import Search from "./Search";
 import { Link } from "react-router-dom";
 import HamburgerMenu from "./HamburgerMenu";
 import styles from "../styles/components/Header.module.css";
+import PropTypes from 'prop-types';
 
 const Header = ({ setShowSideBar }) => {
   return (
@@ -22,6 +23,10 @@ const Header = ({ setShowSideBar }) => {
       </nav>
     </header>
   );
+};
+
+Header.propTypes = {
+  setShowSideBar: PropTypes.func
 };
 
 export default Header;

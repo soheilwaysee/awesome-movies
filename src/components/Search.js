@@ -6,6 +6,7 @@ import Image from "./Image";
 import get from "lodash.get";
 import styles from "../styles/components/Search.module.css";
 import { getSearchData } from "../redux/actions";
+import routerPropTypes from '../propTypesCommon/routerPropTypes';
 
 const Search = ({ history }) => {
   const inputRef = useRef();
@@ -78,6 +79,10 @@ const Search = ({ history }) => {
       )}
     </li>
   );
+};
+
+Search.propTypes = {
+  history: routerPropTypes.history
 };
 
 export default withRouter(Search);

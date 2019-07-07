@@ -4,7 +4,9 @@ import getYear from "../utils/getYear";
 import styles from "../styles/components/MovieDetails.module.css";
 import MovieDetailsInfo from "./MovieDetailsInfo";
 import MovieDetailsInfoArray from "./MovieDetailsInfoArray";
-import isUidChanged from "../utils/isUidChanged";
+import uidHasChanged from "../utils/uidHasChanged";
+import PropTypes from 'prop-types';
+import moviePropTypes from '../propTypesCommon/moviePropTypes';
 
 const MovieDetails = ({
   data: {
@@ -82,4 +84,10 @@ const MovieDetails = ({
   );
 };
 
-export default memo(MovieDetails, isUidChanged);
+MovieDetails.propTypes = {
+  data: moviePropTypes,
+  isFavorited: PropTypes.bool,
+  isWatchListed:  PropTypes.bool
+}
+
+export default memo(MovieDetails, uidHasChanged);

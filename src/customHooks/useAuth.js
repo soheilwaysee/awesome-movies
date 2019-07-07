@@ -1,8 +1,8 @@
 import {useSelector} from 'react-redux'
-import isLoginCheck from '../utils/isLoginCheck';
+import isLoggedInCheck from '../utils/isLoggedInCheck';
 
 const useAuth = () => useSelector(state => ({
-    isLogin: isLoginCheck(state)
+    isLoggedIn: isLoggedInCheck(state)
   }));
 
 export default useAuth;

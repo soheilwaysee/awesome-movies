@@ -1,5 +1,6 @@
 import React from "react";
 import config from "../config";
+import PropTypes from 'prop-types'
 
 const Image = ({ alt, src, className }) => (
   <img
@@ -11,5 +12,11 @@ const Image = ({ alt, src, className }) => (
     className={className}
   />
 );
+
+Image.propTypes = {
+  alt: PropTypes.string,
+  src: PropTypes.string,
+  className: PropTypes.string
+};
 
 export default Image;

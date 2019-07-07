@@ -1,5 +1,6 @@
 import React from "react";
 import styles from "../styles/components/HamburgerMenu.module.css";
+import PropTypes from 'prop-types'
 
 const HamburgerMenu = ({ setShowSideBar }) => (
   <button
@@ -13,5 +14,9 @@ const HamburgerMenu = ({ setShowSideBar }) => (
     <span className={styles.bar} />
   </button>
 );
+
+HamburgerMenu.propTypes = {
+  setShowSideBar: PropTypes.func
+};
 
 export default HamburgerMenu;
