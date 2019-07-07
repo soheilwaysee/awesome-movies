@@ -16,7 +16,9 @@ Popular technologies:
 - [axios](https://github.com/mzabriskie/axios) for universal data fetching/rehydration on the client.
 - [Redux Devtools Extension](https://github.com/zalmoxisus/redux-devtools-extension) for next generation developer experience.
 
-- [Yarn](https://yarnpkg.com/lang/en/) as the package manager.
+- [prop-types](https://github.com/facebook/prop-types) for Runtime type checking for React props and similar objects.
+
+- [prettier](https://yarnpkg.com/lang/en/) Opinionated Code Formatter.
 
 ## Getting Started
 
@@ -30,14 +32,24 @@ cd awesome-movies
 **2. Install all of the dependencies:**
 
 ```bash
+npm install
+```
+or
+```bash
 yarn
 ```
-
-**3. Start to run it:**
-
+**3. Add env to project:**
 ```bash
 cp .env.example .env
 ```
+
+**4. Start to run it:**
+
+```bash
+npm start  # Running development server
+```
+or
+
 ```bash
 yarn start  # Running development server
 ```
