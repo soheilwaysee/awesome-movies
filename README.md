@@ -25,7 +25,7 @@ Popular technologies:
 **1. You can start by cloning the repository on your local machine by running:**
 
 ```bash
-git@github.com:soheilwaysee/awesome-movies.git
+git clone git@github.com:soheilwaysee/awesome-movies.git
 cd awesome-movies
 ```
 

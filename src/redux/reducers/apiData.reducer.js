@@ -1,6 +1,6 @@
 import get from 'lodash.get';
 import normalizers from '../normalizers';
-import getKey from '../../utils/getKey';
+import getUniqueKey from '../../utils/getUniqueKey';
 import actionTypes from '../actionTypes';
 import replaceImmutableList from '../../utils/replaceImmutableList';
 
@@ -13,7 +13,7 @@ const setData = (state, action) => {
     return {
       ...state,
       [action.type]: normalizedData,
-      uid: getKey()
+      uid: getUniqueKey()
     };
   }
   const startIndex = (page - 1) * 20;
@@ -31,7 +31,7 @@ const setData = (state, action) => {
     [action.type]: {
       ...normalizedData,
       items: newItems,
-      uid: getKey()
+      uid: getUniqueKey()
     }
   };
 };
@@ -54,7 +54,7 @@ const apiData = (state = initialState, action = {}) => {
             ...get(stateTypeName, ['ids'], {}),
             [action.id]: action.active
           },
-          uid: getKey()
+          uid: getUniqueKey()
         }
       };
     }

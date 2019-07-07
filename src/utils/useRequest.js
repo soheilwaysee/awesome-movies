@@ -1,8 +1,8 @@
 import { useEffect, useState, useCallback } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
 import get from 'lodash.get';
+import getUniqueKey from './getUniqueKey';
 import useIsComponentUnmounted from '../customHooks/useIsComponentUnmounted';
-import getKey from './getKey';
 
 const useRequest = (action, notRequest) => {
   const isUnmounted = useIsComponentUnmounted();
@@ -22,13 +22,17 @@ const useRequest = (action, notRequest) => {
           if (isUnmounted.current) {
             return undefined;
           }
-          setRequestStatus({ loading: false, uid: getKey() });
+          setRequestStatus({ loading: false, uid: getUniqueKey() });
         })
         .catch(() => {
           if (isUnmounted.current) {
             return undefined;
           }
-          setRequestStatus({ loading: false, error: true, uid: getKey() });
+          setRequestStatus({
+            loading: false,
+            error: true,
+            uid: getUniqueKey()
+          });
         });
     },
     [isUnmounted, reduxDispatch]
@@ -51,7 +55,7 @@ const useRequest = (action, notRequest) => {
   const dataUid = get(data, ['uid']);
 
   useEffect(() => {
-    setRequestStatus(prevStatus => ({ ...prevStatus, uid: getKey() }));
+    setRequestStatus(prevStatus => ({ ...prevStatus, uid: getUniqueKey() }));
   }, [dataUid]);
 
   const notApiRequest = notRequest || data;
