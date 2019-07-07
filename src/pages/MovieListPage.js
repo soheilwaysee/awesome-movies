@@ -3,8 +3,6 @@ import MovieList from '../components/MovieList';
 import useRequest from '../utils/useRequest';
 import { getMoviesApiActions } from '../redux/actions';
 import get from 'lodash.get';
-import { Redirect } from 'react-router-dom';
-import routeNames from '../constants/routeNames';
 import Loading from '../components/Loading';
 import actionTypes from '../redux/actionTypes';
 import EmptyList from '../components/EmptyList';
@@ -57,9 +55,7 @@ const MovieListPage = ({ history, location }) => {
   );
 
   const isEmptyList = !loading && items.length === 0;
-  return !action ? (
-    <Redirect to={routeNames.homePage} />
-  ) : (
+  return (
     <>
       {isEmptyList ? (
         <EmptyList show isLoggedIn={isLoggedIn} />
