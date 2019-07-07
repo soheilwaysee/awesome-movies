@@ -1,52 +1,96 @@
+.wrapper {
+  display: flex;
+  position: relative;
+  margin-left: 0.3rem;
+  width: 60%;
+}
+.link {
+  color: var(--white);
+  text-align: left;
+  background-color: transparent;
+  display: flex;
+  outline: none;
+  border: 0;
+  flex: 1;
+  align-items: center;
+}
+
+.link:hover {
+  background-color: black;
+}
+
 .suggestionWrapper {
-    position: absolute;
-    top: var(--five-base);
-    left: 0;
-    display: flex;
-    flex-direction: column;
-    background-color: rgb(46, 49, 53);
-    right: 0;
-    z-index: 1000;
+  position: absolute;
+  top: var(--five-base);
+  left: 0;
+  display: flex;
+  flex-direction: column;
+  background-color: rgb(46, 49, 53);
+  right: 0;
+  z-index: 1000;
+}
+
+.infoWrapper {
+  font-size: 0.8rem;
+  flex: 1;
+  overflow: hidden;
+  margin-left: 1rem;
+}
+.infoWrapperItem {
+  white-space: nowrap;
+  text-overflow: ellipsis;
+  overflow: hidden;
+}
+
+.suggestionItemReleaseDate {
+  font-size: 0.8rem;
+}
+
+.clear {
+  position: absolute;
+  right: 0;
+  bottom: 0;
+  font-size: 1.2rem;
+  top: 0;
+  background-color: transparent;
+  color: var(--white);
+  outline: none;
+  border: 0;
+}
+.input {
+  flex: 1;
+  display: flex;
+  outline-style: none;
+  outline-width: 0;
+  padding-left: 0.5rem;
+  border-width: 0;
+  border-bottom-width: 0.1rem;
+  font-size: 1.4em;
+  border-color: transparent;
+  background-color: rgb(46, 49, 53);
+  border-bottom: 0.3rem solid transparent;
+  color: var(--white);
+}
+
+input:focus {
+  border-bottom: 0.3rem solid var(--active);
+}
+
+.suggestionItemWrapper {
+  flex: 1;
+  display: flex;
+  overflow: hidden;
+  cursor: pointer;
+}
+
+.suggestionItemImage {
+  width: var(--five-base);
+  height: var(--five-base);
+}
+
+
+@media screen and (orientation: portrait) {
+  .wrapper {
+    width: 85%;
   }
-
-  .link {
-    color: var(--white);
-    text-align: left;
-    background-color: transparent;
-    display: flex;
-    outline: none;
-    border: 0;
-    flex: 1;
-    align-items: center;
-  }
-  
-  .link:hover {
-    background-color: black;
-  }
-
-
-  .suggestionItemWrapper {
-    flex: 1;
-    display: flex;
-    overflow: hidden;
-  }
-
-
-  .suggestionItemImage {
-    width: var(--five-base);
-    height: var(--five-base);
-  }
-
-
-  .infoWrapper {
-    font-size: 0.8rem;
-    flex: 1;
-    overflow: hidden;
-    margin-left: 1rem;
-  }
-
-  .infoWrapperItem {
-    white-space: nowrap;
-    text-overflow: ellipsis;
-    overflow: hidden;
-  }
+}
