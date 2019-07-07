@@ -1,11 +1,11 @@
-import React, { useCallback } from "react";
-import CardImage from "./CardImage";
-import getYear from "../utils/getYear";
-import styles from "../styles/components/Card.module.css";
-import classNamesJoiner from "../utils/classNamesJoiner";
+import React, { useCallback } from 'react';
+import CardImage from './CardImage';
+import getYear from '../utils/getYear';
+import styles from '../styles/components/Card.module.css';
+import classNamesJoiner from '../utils/classNamesJoiner';
 import PropTypes from 'prop-types';
 import moviePropTypes from '../propTypesCommon/moviePropTypes';
-
+import get from 'lodash.get';
 
 const defaultShowDetailsHandler = () => undefined;
 
@@ -20,7 +20,7 @@ const Card = ({
     showDetailsHandler(item.id);
   }, [item.id, showDetailsHandler]);
 
-  const year = getYear(item.release_date);
+  const year = getYear(get(item, ['release_date']));
   return (
     <div
       onClick={showDetails}
@@ -52,6 +52,5 @@ Card.propTypes = {
   showDetailsHandler: PropTypes.func,
   className: PropTypes.string
 };
-
 
 export default Card;

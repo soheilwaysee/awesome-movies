@@ -1,8 +1,8 @@
-import { useEffect, useState, useCallback } from "react";
-import { useDispatch, useSelector } from "react-redux";
-import get from "lodash.get";
-import useIsComponentUnmounted from "../customHooks/useIsComponentUnmounted";
-import getKey from "./getKey";
+import { useEffect, useState, useCallback } from 'react';
+import { useDispatch, useSelector } from 'react-redux';
+import get from 'lodash.get';
+import useIsComponentUnmounted from '../customHooks/useIsComponentUnmounted';
+import getKey from './getKey';
 
 const useRequest = (action, notRequest) => {
   const isUnmounted = useIsComponentUnmounted();
@@ -46,15 +46,15 @@ const useRequest = (action, notRequest) => {
     [action, getData]
   );
   const data = useSelector(state =>
-    get(state, ["apiData", get(action, ["type"])])
+    get(state, ['apiData', get(action, ['type'])])
   );
-  const dataUid = get(data, ["uid"]);
+  const dataUid = get(data, ['uid']);
 
   useEffect(() => {
     setRequestStatus(prevStatus => ({ ...prevStatus, uid: getKey() }));
   }, [dataUid]);
 
-  const notApiRequest = notRequest ||  data;
+  const notApiRequest = notRequest || data;
   useEffect(() => {
     if (notApiRequest) {
       return undefined;

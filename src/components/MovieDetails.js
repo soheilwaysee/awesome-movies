@@ -1,17 +1,17 @@
-import React, { memo } from "react";
-import Card from "./Card";
-import getYear from "../utils/getYear";
-import styles from "../styles/components/MovieDetails.module.css";
-import MovieDetailsInfo from "./MovieDetailsInfo";
-import MovieDetailsInfoArray from "./MovieDetailsInfoArray";
-import uidHasChanged from "../utils/uidHasChanged";
+import React, { memo } from 'react';
+import Card from './Card';
+import getYear from '../utils/getYear';
+import styles from '../styles/components/MovieDetails.module.css';
+import MovieDetailsInfo from './MovieDetailsInfo';
+import MovieDetailsInfoArray from './MovieDetailsInfoArray';
+import uidHasChanged from '../utils/uidHasChanged';
 import PropTypes from 'prop-types';
 import moviePropTypes from '../propTypesCommon/moviePropTypes';
 
 const MovieDetails = ({
   data: {
     poster_path,
-    title = "",
+    title = '',
     release_date,
     vote_average,
     id,
@@ -36,7 +36,11 @@ const MovieDetails = ({
         {release_date && (
           <h4 className={styles.year}>{getYear(release_date)}</h4>
         )}
-        <MovieDetailsInfoArray info={genres} wrapperClassName="center-align" title="Genres" />
+        <MovieDetailsInfoArray
+          info={genres}
+          wrapperClassName="center-align"
+          title="Genres"
+        />
         <Card
           isFavorited={isFavorited}
           isWatchListed={isWatchListed}
@@ -75,7 +79,7 @@ const MovieDetails = ({
                 title="Belongs To Collection"
               />
               <h4 className={styles.descriptionTitle}>Adult</h4>
-              <span>{adult ? "Yes" : "No"}</span>
+              <span>{adult ? 'Yes' : 'No'}</span>
             </div>
           </div>
         </div>
@@ -87,7 +91,7 @@ const MovieDetails = ({
 MovieDetails.propTypes = {
   data: moviePropTypes,
   isFavorited: PropTypes.bool,
-  isWatchListed:  PropTypes.bool
-}
+  isWatchListed: PropTypes.bool
+};
 
 export default memo(MovieDetails, uidHasChanged);

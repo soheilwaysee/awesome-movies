@@ -1,8 +1,8 @@
-import actionTypes from "./actionTypes";
-import get from "lodash.get";
+import actionTypes from './actionTypes';
+import get from 'lodash.get';
 
 const addIdsObject = data => {
-  const ids = get(data, ["results"], []).reduce(
+  const ids = get(data, ['results'], []).reduce(
     (result, item) => ({ ...result, [item.id]: true }),
     {}
   );

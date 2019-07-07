@@ -1,5 +1,5 @@
-import React from "react";
-import styles from "../styles/components/MovieDetailsInfo.module.css";
+import React from 'react';
+import styles from '../styles/components/MovieDetailsInfo.module.css';
 import PropTypes from 'prop-types';
 
 const MovieDetailsInfo = ({ info, title }) =>
@@ -11,8 +11,8 @@ const MovieDetailsInfo = ({ info, title }) =>
   ) : null;
 
 MovieDetailsInfo.propTypes = {
-  info: PropTypes.oneOfType([ PropTypes.string, PropTypes.number]),
-  title: PropTypes.string,
+  info: PropTypes.oneOfType([PropTypes.string, PropTypes.number]),
+  title: PropTypes.string
 };
 
 export default MovieDetailsInfo;

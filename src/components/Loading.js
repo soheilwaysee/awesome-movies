@@ -1,6 +1,6 @@
-import React from "react";
-import styles from "../styles/components/Loading.module.css";
-import Icon from "./Icon";
+import React from 'react';
+import styles from '../styles/components/Loading.module.css';
+import Icon from './Icon';
 import PropTypes from 'prop-types';
 
 const Loading = ({ show }) => {

@@ -1,12 +1,12 @@
-import get from "lodash.get";
-import normalizers from "../normalizers";
-import getKey from "../../utils/getKey";
-import actionTypes from "../actionTypes";
-import replaceImmutableList from "../../utils/replaceImmutableList";
+import get from 'lodash.get';
+import normalizers from '../normalizers';
+import getKey from '../../utils/getKey';
+import actionTypes from '../actionTypes';
+import replaceImmutableList from '../../utils/replaceImmutableList';
 
 const setData = (state, action) => {
-  const data = get(action, ["data"]);
-  const page = get(data, ["page"]);
+  const data = get(action, ['data']);
+  const page = get(data, ['page']);
   const normalizer = normalizers[action.type];
   const normalizedData = normalizer ? normalizer(data) : data;
   if (!page) {
@@ -17,8 +17,8 @@ const setData = (state, action) => {
     };
   }
   const startIndex = (page - 1) * 20;
-  const currentArray = get(state, [action.type, "items"], []);
-  const replaceArray = get(normalizedData, ["results"], []);
+  const currentArray = get(state, [action.type, 'items'], []);
+  const replaceArray = get(normalizedData, ['results'], []);
   const newItems = replaceImmutableList(
     startIndex,
     currentArray,
@@ -51,7 +51,7 @@ const apiData = (state = initialState, action = {}) => {
         [typeName]: {
           ...state[typeName],
           ids: {
-            ...get(stateTypeName, ["ids"], {}),
+            ...get(stateTypeName, ['ids'], {}),
             [action.id]: action.active
           },
           uid: getKey()

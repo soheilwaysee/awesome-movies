@@ -1,12 +1,12 @@
-import React from "react";
-import classNameJoiner from "../utils/classNamesJoiner";
-import iconNames from "../constants/iconNames";
+import React from 'react';
+import classNameJoiner from '../utils/classNamesJoiner';
+import iconNames from '../constants/iconNames';
 import PropTypes from 'prop-types';
 
 const IconNameMapper = {
   [iconNames.spinner]: {
     value: <>&#xe838;</>,
-    className: "icon-spin5 animate-spin"
+    className: 'icon-spin5 animate-spin'
   },
   [iconNames.starActive]: {
     value: <>&#xe800;</>
@@ -26,7 +26,7 @@ const Icon = ({ name, style }) => {
   const { value, className } = IconNameMapper[name];
   return (
     <i
-      className={classNameJoiner(["icon", className])}
+      className={classNameJoiner(['icon', className])}
       {...(style ? { style } : {})}
     >
       {value}
@@ -35,10 +35,10 @@ const Icon = ({ name, style }) => {
 };
 
 Icon.propTypes = {
-name: PropTypes.string,
-style: PropTypes.shape({
-  color: PropTypes.string
-})
+  name: PropTypes.string,
+  style: PropTypes.shape({
+    color: PropTypes.string
+  })
 };
 
 export default Icon;

@@ -1,12 +1,12 @@
-import actionTypes from "../redux/actionTypes";
-import get from "lodash.get";
+import actionTypes from '../redux/actionTypes';
+import get from 'lodash.get';
 
 const isLoggedInCheck = state =>
   Boolean(
     get(state, [
-      "apiData",
+      'apiData',
       actionTypes.POST_AUTHENTICATION_SESSION_NEW,
-      "session_id"
+      'session_id'
     ])
   );
 

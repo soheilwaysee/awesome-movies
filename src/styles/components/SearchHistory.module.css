@@ -1,0 +1,52 @@
+.suggestionWrapper {
+    position: absolute;
+    top: var(--five-base);
+    left: 0;
+    display: flex;
+    flex-direction: column;
+    background-color: rgb(46, 49, 53);
+    right: 0;
+    z-index: 1000;
+  }
+
+  .link {
+    color: var(--white);
+    text-align: left;
+    background-color: transparent;
+    display: flex;
+    outline: none;
+    border: 0;
+    flex: 1;
+    align-items: center;
+  }
+  
+  .link:hover {
+    background-color: black;
+  }
+
+
+  .suggestionItemWrapper {
+    flex: 1;
+    display: flex;
+    overflow: hidden;
+  }
+
+
+  .suggestionItemImage {
+    width: var(--five-base);
+    height: var(--five-base);
+  }
+
+
+  .infoWrapper {
+    font-size: 0.8rem;
+    flex: 1;
+    overflow: hidden;
+    margin-left: 1rem;
+  }
+
+  .infoWrapperItem {
+    white-space: nowrap;
+    text-overflow: ellipsis;
+    overflow: hidden;
+  }

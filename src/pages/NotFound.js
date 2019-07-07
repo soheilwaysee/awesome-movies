@@ -1,5 +1,5 @@
-import React from "react";
-import styles from "../styles/pages/NotFound.module.css";
+import React from 'react';
+import styles from '../styles/pages/NotFound.module.css';
 
 const NotFound = () => (
   <div className={styles.wrapper}>

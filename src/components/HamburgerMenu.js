@@ -1,6 +1,6 @@
-import React from "react";
-import styles from "../styles/components/HamburgerMenu.module.css";
-import PropTypes from 'prop-types'
+import React from 'react';
+import styles from '../styles/components/HamburgerMenu.module.css';
+import PropTypes from 'prop-types';
 
 const HamburgerMenu = ({ setShowSideBar }) => (
   <button

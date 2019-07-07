@@ -1,12 +1,12 @@
-import React from "react";
-import config from "../config";
-import PropTypes from 'prop-types'
+import React from 'react';
+import config from '../config';
+import PropTypes from 'prop-types';
 
 const Image = ({ alt, src, className }) => (
   <img
     {...(src
       ? { src: `${config.IMAGE_BASE_URL}${src}` }
-      : { src: "/images/placeholder.png" })}
+      : { src: '/images/placeholder.png' })}
     data-testid="image"
     alt={alt}
     className={className}

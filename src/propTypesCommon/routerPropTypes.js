@@ -10,8 +10,8 @@ export const location = PropTypes.shape({
     PropTypes.bool,
     PropTypes.number,
     PropTypes.object,
-    PropTypes.string,
-  ]),
+    PropTypes.string
+  ])
 });
 
 export const history = PropTypes.shape({
@@ -28,14 +28,14 @@ export const history = PropTypes.shape({
   listen: PropTypes.func.isRequired,
   location: location.isRequired,
   push: PropTypes.func.isRequired,
-  replace: PropTypes.func.isRequired,
+  replace: PropTypes.func.isRequired
 });
 
 export const match = PropTypes.shape({
   isExact: PropTypes.bool,
   params: PropTypes.object.isRequired,
   path: PropTypes.string.isRequired,
-  url: PropTypes.string.isRequired,
+  url: PropTypes.string.isRequired
 });
 
 const routeShape: any = {
@@ -43,7 +43,7 @@ const routeShape: any = {
   exact: PropTypes.bool,
   strict: PropTypes.bool,
   sensitive: PropTypes.bool,
-  component: PropTypes.func,
+  component: PropTypes.func
 };
 routeShape.routes = PropTypes.arrayOf(PropTypes.shape(routeShape));
 
@@ -53,5 +53,5 @@ export default {
   location,
   history,
   match,
-  route,
+  route
 };

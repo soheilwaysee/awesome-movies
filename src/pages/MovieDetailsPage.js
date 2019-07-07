@@ -1,8 +1,8 @@
-import React, { useEffect, useMemo } from "react";
-import MovieDetails from "../components/MovieDetails";
-import { getMovieApiAction, getMoviesApiActions } from "../redux/actions";
-import useRequest from "../utils/useRequest";
-import get from "lodash.get";
+import React, { useEffect, useMemo } from 'react';
+import MovieDetails from '../components/MovieDetails';
+import { getMovieApiAction, getMoviesApiActions } from '../redux/actions';
+import useRequest from '../utils/useRequest';
+import get from 'lodash.get';
 import useAuth from '../customHooks/useAuth';
 import routerPropTypes from '../propTypesCommon/routerPropTypes';
 
@@ -13,7 +13,7 @@ const MovieDetailsPage = ({
 }) => {
   const action = useMemo(() => getMovieApiAction(id), [id]);
   const [{ data, uid }, setAction] = useRequest(action);
-  const {isLoggedIn} = useAuth();
+  const { isLoggedIn } = useAuth();
   const [{ data: favoriteData, uid: favoriteUid }] = useRequest(
     getMoviesApiActions.favorites,
     !isLoggedIn
@@ -22,10 +22,10 @@ const MovieDetailsPage = ({
     getMoviesApiActions.watchlist,
     !isLoggedIn
   );
-  const favoriteIds = get(favoriteData, ["ids"]);
-  const watchListIds = get(watchListData, ["ids"]);
+  const favoriteIds = get(favoriteData, ['ids']);
+  const watchListIds = get(watchListData, ['ids']);
 
-  const dataId = get(data, ["id"]);
+  const dataId = get(data, ['id']);
   const isFavorited = get(favoriteIds, [dataId]);
   const isWatchListed = get(watchListIds, [dataId]);
 

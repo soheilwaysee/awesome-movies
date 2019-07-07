@@ -1,8 +1,8 @@
-import React, { useCallback } from "react";
-import { NavLink } from "react-router-dom";
-import styles from "../styles/components/SideBar.module.css";
-import routeNames from "../constants/routeNames";
-import classNamesJoiner from "../utils/classNamesJoiner";
+import React, { useCallback } from 'react';
+import { NavLink } from 'react-router-dom';
+import styles from '../styles/components/SideBar.module.css';
+import routeNames from '../constants/routeNames';
+import classNamesJoiner from '../utils/classNamesJoiner';
 import PropTypes from 'prop-types';
 
 const SideBar = ({ show, setShowSideBar }) => {

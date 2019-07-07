@@ -1,3 +1,3 @@
-const replaceUnderlineWithSpace = str => str.replace("_", " ");
+const replaceUnderlineWithSpace = str => str.replace('_', ' ');
 
 export default replaceUnderlineWithSpace;

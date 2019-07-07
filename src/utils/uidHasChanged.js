@@ -1,5 +1,5 @@
-import get from "lodash.get";
+import get from 'lodash.get';
 const uidHasChanged = (prevProps, nextProps) =>
-  get(prevProps, ["uid"]) === get(nextProps, ["uid"]);
+  get(prevProps, ['uid']) === get(nextProps, ['uid']);
 
 export default uidHasChanged;

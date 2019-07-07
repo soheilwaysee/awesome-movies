@@ -1,8 +1,8 @@
-import React from "react";
-import Search from "./Search";
-import { Link } from "react-router-dom";
-import HamburgerMenu from "./HamburgerMenu";
-import styles from "../styles/components/Header.module.css";
+import React from 'react';
+import Search from './Search';
+import { Link } from 'react-router-dom';
+import HamburgerMenu from './HamburgerMenu';
+import styles from '../styles/components/Header.module.css';
 import PropTypes from 'prop-types';
 
 const Header = ({ setShowSideBar }) => {
@@ -10,7 +10,7 @@ const Header = ({ setShowSideBar }) => {
     <header className={styles.header}>
       <nav>
         <ul className={styles.listWrapper}>
-          <li className={[styles.itemWrapper, styles.hamburgerMenu].join(" ")}>
+          <li className={[styles.itemWrapper, styles.hamburgerMenu].join(' ')}>
             <HamburgerMenu setShowSideBar={setShowSideBar} />
           </li>
           <li className={styles.itemWrapper}>

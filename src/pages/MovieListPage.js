@@ -1,25 +1,25 @@
-import React, { useCallback, useMemo } from "react";
-import MovieList from "../components/MovieList";
-import useRequest from "../utils/useRequest";
-import { getMoviesApiActions } from "../redux/actions";
-import get from "lodash.get";
-import { Redirect } from "react-router-dom";
-import routeNames from "../constants/routeNames";
-import Loading from "../components/Loading";
-import actionTypes from "../redux/actionTypes";
-import EmptyList from "../components/EmptyList";
+import React, { useCallback, useMemo } from 'react';
+import MovieList from '../components/MovieList';
+import useRequest from '../utils/useRequest';
+import { getMoviesApiActions } from '../redux/actions';
+import get from 'lodash.get';
+import { Redirect } from 'react-router-dom';
+import routeNames from '../constants/routeNames';
+import Loading from '../components/Loading';
+import actionTypes from '../redux/actionTypes';
+import EmptyList from '../components/EmptyList';
 import useAuth from '../customHooks/useAuth';
 import PropTypes from 'prop-types';
 import movieTypesPropTypes from '../propTypesCommon/movieTypesPropTypes';
 
 const MovieListPage = ({
   match: {
-    params: { type = "now_playing" }
+    params: { type = 'now_playing' }
   },
   history
 }) => {
   const action = useMemo(() => get(getMoviesApiActions, [type]), [type]);
-  const {isLoggedIn} = useAuth();
+  const { isLoggedIn } = useAuth();
   const isRouteFavORWatchList =
     [
       actionTypes.GET_ACCOUNT_FAVORITE_MOVIES,
@@ -37,11 +37,11 @@ const MovieListPage = ({
     getMoviesApiActions.watchlist,
     !isLoggedIn
   );
-  const favoriteIds = get(favoriteData, ["ids"]);
-  const watchListIds = get(watchListData, ["ids"]);
-  const items = get(data, ["items"], []);
-  const page = get(data, ["page"], 1);
-  const totalPages = get(data, ["total_pages"]);
+  const favoriteIds = get(favoriteData, ['ids']);
+  const watchListIds = get(watchListData, ['ids']);
+  const items = get(data, ['items'], []);
+  const page = get(data, ['page'], 1);
+  const totalPages = get(data, ['total_pages']);
   const isLastPage = totalPages === undefined || page >= totalPages;
 
   const onEndReached = useCallback(() => {

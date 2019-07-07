@@ -1,11 +1,11 @@
-import React, { memo } from "react";
-import Card from "./Card";
-import styles from "../styles/components/MovieList.module.css";
-import uidHasChanged from "../utils/uidHasChanged";
-import iconNames from "../constants/iconNames";
-import Icon from "./Icon";
-import replaceUnderlineWithSpace from "../utils/replaceUnderlineWithSpace";
-import get from "lodash.get";
+import React, { memo } from 'react';
+import Card from './Card';
+import styles from '../styles/components/MovieList.module.css';
+import uidHasChanged from '../utils/uidHasChanged';
+import iconNames from '../constants/iconNames';
+import Icon from './Icon';
+import replaceUnderlineWithSpace from '../utils/replaceUnderlineWithSpace';
+import get from 'lodash.get';
 import PropTypes from 'prop-types';
 import movieTypesPropTypes from '../propTypesCommon/movieTypesPropTypes';
 import moviePropTypes from '../propTypesCommon/moviePropTypes';
@@ -22,12 +22,10 @@ const MovieList = ({
   onEndReached
 }) => (
   <div className={styles.wrapper}>
-    {type && (
-      <h1 className={styles.type}>{replaceUnderlineWithSpace(type)}</h1>
-    )}
+    {type && <h1 className={styles.type}>{replaceUnderlineWithSpace(type)}</h1>}
     <div className={styles.itemWrapper}>
       {items.map(item => {
-        const id = get(item, ["id"]);
+        const id = get(item, ['id']);
         return (
           <Card
             isFavorited={get(favoriteIds, [id], false)}
@@ -41,11 +39,7 @@ const MovieList = ({
       })}
     </div>
     {!isLastPage && (
-      <button
-        type="button"
-        className={styles.loadMore}
-        onClick={onEndReached}
-      >
+      <button type="button" className={styles.loadMore} onClick={onEndReached}>
         <Icon name={iconNames.downOpen} />
       </button>
     )}
@@ -53,7 +47,7 @@ const MovieList = ({
 );
 
 MovieList.propTypes = {
-  type:movieTypesPropTypes,
+  type: movieTypesPropTypes,
   items: PropTypes.arrayOf(moviePropTypes),
   favoriteIds: PropTypes.objectOf(PropTypes.bool),
   watchListIds: PropTypes.objectOf(PropTypes.bool),
